@@ -2,11 +2,13 @@ package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
 import java.sql.DriverManager;
 
-public class Connection {
+import com.mysql.jdbc.Connection;
+
+public class MyConnection {
 	public static Connection getConnection() {
 		Connection connection = null;
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/NotiApp";
+		String url = "jdbc:mysql://localhost:3306/NotiApp?verifyServerCertificate=true&useSSL=true";
 		String user = "root";
 		String pass = "admin";
 		try {
