@@ -11,12 +11,12 @@ import com.mysql.jdbc.PreparedStatement;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.Announce;
 
 public class AnnounceDAO {
-	public static List<Announce> getPosts() {
+	public static List<Announce> getAnnounceList() {
 		List<Announce> list = new ArrayList<Announce>();
 		return list;
 	}
 
-	public static Announce getRecentPost() {
+	public static Announce getRecentAnnounce() {
 		Announce p = new Announce();
 		try {
 			Connection conn = MyConnection.getConnection();

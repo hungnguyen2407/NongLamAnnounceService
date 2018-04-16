@@ -16,13 +16,13 @@ public class AnnounceServices {
 	@Path("/recent")
 	@Produces("application/json; charset=UTF-8")
 	public Announce getRecentAnnounce(){
-		return AnnounceDAO.getRecentPost();
+		return AnnounceDAO.getRecentAnnounce();
 	}
 	
 	@GET
 	@Path("/all")
 	@Produces("application/json; charset=UTF-8")
 	public Announce getAllAnnounce(){
-		return AnnounceDAO.getRecentPost();
+		return AnnounceDAO.getRecentAnnounce();
 	}
 }
