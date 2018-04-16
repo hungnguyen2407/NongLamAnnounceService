@@ -1,8 +1,12 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.services;
 
 import javax.ws.rs.Produces;
+
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import vn.edu.hcmuaf.NongLamAnnounceService.dao.AnnounceDAO;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.Announce;
@@ -19,7 +23,14 @@ public class AnnounceServices {
 	@GET
 	@Path("/all")
 	@Produces("application/json; charset=UTF-8")
-	public Announce getAllAnnounce(){
-		return AnnounceDAO.getRecentAnnounce();
+	public List<Announce> getAllAnnounce(){
+		return AnnounceDAO.getAnnounceList();
+	}
+	
+	@GET
+	@Path("/{group_id}")
+	@Produces("application/json; charset=UTF-8")
+	public List<Announce> getAnnounce(@PathParam("group_id")String group_id){
+		return AnnounceDAO.getAnnounceList(group_id);
 	}
 }
