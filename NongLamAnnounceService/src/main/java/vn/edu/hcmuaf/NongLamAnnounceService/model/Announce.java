@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -65,11 +65,11 @@ public class Announce {
 		this.classId = classId;
 	}
 
-	public Date getPostDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setPostDate(Date postDate) {
-		this.date = postDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }
