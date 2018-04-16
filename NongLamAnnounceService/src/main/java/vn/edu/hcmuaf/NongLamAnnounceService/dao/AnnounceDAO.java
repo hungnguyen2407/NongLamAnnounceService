@@ -2,7 +2,7 @@ package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
@@ -29,13 +29,13 @@ public class AnnounceDAO {
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
-				Date postDate = rs.getDate("post_date");
+				Date date = rs.getDate("post_date");
 				p.setPostId(postId);
 				p.setId(id);
 				p.setTitle(title);
 				p.setContent(content);
 				p.setClassId(classId);
-				p.setPostDate(postDate);
+				p.setPostDate(date);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

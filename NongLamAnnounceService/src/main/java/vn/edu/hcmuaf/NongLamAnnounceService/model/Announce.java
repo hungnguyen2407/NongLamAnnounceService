@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -11,18 +11,18 @@ public class Announce {
 	private String title;
 	private String content;
 	private String classId;
-	private Date postDate;
+	private Date date;
 	
 	public Announce() {
 	}
 	
-	public Announce(String postId, String id, String title, String content, String classId, Date postDate) {
+	public Announce(String postId, String id, String title, String content, String classId, Date date) {
 		this.postId = postId;
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.classId = classId;
-		this.postDate = postDate;
+		this.date = date;
 	}
 
 	public String getPostId() {
@@ -66,10 +66,10 @@ public class Announce {
 	}
 
 	public Date getPostDate() {
-		return postDate;
+		return date;
 	}
 
 	public void setPostDate(Date postDate) {
-		this.postDate = postDate;
+		this.date = postDate;
 	}
 }
