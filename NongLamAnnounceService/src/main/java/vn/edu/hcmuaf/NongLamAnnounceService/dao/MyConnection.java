@@ -23,6 +23,7 @@ public class MyConnection {
 	}
 
 	public static void main(String[] args) {
+		//Kiem tra
 		Connection connection = getConnection();
 		if (connection != null) {
 			System.out.println("Kết nối thành công");
