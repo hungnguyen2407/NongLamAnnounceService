@@ -18,5 +18,6 @@ public class MyResource {
     @Produces("text/plain")
     public String getIt() {
         return "Hi there!";
+        
     }
 }
