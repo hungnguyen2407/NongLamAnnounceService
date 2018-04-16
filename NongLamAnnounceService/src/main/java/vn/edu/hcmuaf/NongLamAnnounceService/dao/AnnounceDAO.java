@@ -8,16 +8,16 @@ import java.util.List;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-import vn.edu.hcmuaf.NongLamAnnounceService.model.Post;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.Announce;
 
-public class PostDAO {
-	public static List<Post> getPosts() {
-		List<Post> list = new ArrayList<Post>();
+public class AnnounceDAO {
+	public static List<Announce> getPosts() {
+		List<Announce> list = new ArrayList<Announce>();
 		return list;
 	}
 
-	public static Post getRecentPost() {
-		Post p = new Post();
+	public static Announce getRecentPost() {
+		Announce p = new Announce();
 		try {
 			Connection conn = MyConnection.getConnection();
 			String sql = "select * from post order by post_date desc limit 1;";

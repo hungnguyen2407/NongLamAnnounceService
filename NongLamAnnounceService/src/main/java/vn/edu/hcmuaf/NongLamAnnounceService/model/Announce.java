@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Post {
+public class Announce {
 	private String postId;
 	private String id;
 	private String title;
@@ -13,10 +13,10 @@ public class Post {
 	private String classId;
 	private Date postDate;
 	
-	public Post() {
+	public Announce() {
 	}
 	
-	public Post(String postId, String id, String title, String content, String classId, Date postDate) {
+	public Announce(String postId, String id, String title, String content, String classId, Date postDate) {
 		this.postId = postId;
 		this.id = id;
 		this.title = title;

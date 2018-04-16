@@ -6,15 +6,23 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
-import vn.edu.hcmuaf.NongLamAnnounceService.dao.PostDAO;
-import vn.edu.hcmuaf.NongLamAnnounceService.model.Post;
+import vn.edu.hcmuaf.NongLamAnnounceService.dao.AnnounceDAO;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.Announce;
 
 @Path("/announce")
 @Encoded
 public class AnnounceServices {
 	@GET
+	@Path("/recent")
 	@Produces("application/json; charset=UTF-8")
-	public Post getRecentPost(){
-		return PostDAO.getRecentPost();
+	public Announce getRecentAnnounce(){
+		return AnnounceDAO.getRecentPost();
+	}
+	
+	@GET
+	@Path("/all")
+	@Produces("application/json; charset=UTF-8")
+	public Announce getAllAnnounce(){
+		return AnnounceDAO.getRecentPost();
 	}
 }
