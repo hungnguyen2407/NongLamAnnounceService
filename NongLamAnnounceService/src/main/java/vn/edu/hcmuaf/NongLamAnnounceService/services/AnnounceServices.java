@@ -33,4 +33,11 @@ public class AnnounceServices {
 	public List<Announce> getAnnounce(@PathParam("group_id")String group_id){
 		return AnnounceDAO.getAnnounceList(group_id);
 	}
+	
+	@GET
+	@Path("/user/{id}")
+	@Produces("application/json; charset=UTF-8")
+	public List<Announce> getAnnounceForUser(@PathParam("id")String id){
+		return AnnounceDAO.getAnnounceListForUser(id);
+	}
 }

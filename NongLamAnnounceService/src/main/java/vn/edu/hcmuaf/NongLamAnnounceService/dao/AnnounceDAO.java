@@ -57,6 +57,24 @@ public class AnnounceDAO {
 		}
 		return list;
 	}
+	
+	public static List<Announce> getAnnounceListForUser(String id) {
+		List<Announce> list = new ArrayList<Announce>();
+		try{
+		Connection conn = MyConnection.getConnection();
+		String sql = "call p_dsClass(?);";
+		PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+		pr.setString(1, id);
+		ResultSet rs = pr.executeQuery();
+		while (rs.next()) {
+			String classId = rs.getString("class_id");
+			list.addAll(getAnnounceList(classId));
+		}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 	public static Announce getRecentAnnounce() {
 		Announce p = new Announce();
