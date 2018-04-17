@@ -25,7 +25,7 @@ public class AnnounceDAO {
 			String content = rs.getString("content");
 			String classId = rs.getString("class_id");
 			Date date = rs.getDate("post_date");
-			Announce a = new Announce(postId, id, title, content, classId, date);
+			Announce a = new Announce(postId, id, title, content, classId, date.toLocaleString());
 			list.add(a);
 		}
 		}catch (Exception e) {
@@ -49,7 +49,7 @@ public class AnnounceDAO {
 			String content = rs.getString("content");
 			String classId = rs.getString("class_id");
 			Date date = rs.getDate("post_date");
-			Announce a = new Announce(postId, id, title, content, classId, date);
+			Announce a = new Announce(postId, id, title, content, classId, date.toLocaleString());
 			list.add(a);
 		}
 		}catch (Exception e) {
@@ -95,7 +95,7 @@ public class AnnounceDAO {
 				p.setTitle(title);
 				p.setContent(content);
 				p.setClassId(classId);
-				p.setDate(date);
+				p.setDate(date.toLocaleString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
