@@ -1,6 +1,5 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +13,21 @@ public class UserDAO {
 
 	public static boolean login(String id, String pass)
 	{
-		boolean valid = false;
-		Connection conn = MyConnection.getConnection();
-		//TODO
-		return valid;
+		try {
+			Connection conn = MyConnection.getConnection();
+			String sql = "call p_login(?, ?);";
+			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+			pr.setString(1, id);
+			pr.setString(2, pass);
+			ResultSet rs = pr.executeQuery();
+			while (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
 	}
 	
 	public static List<InfoGroupOfUser> getdsGroupOfUser(String id){

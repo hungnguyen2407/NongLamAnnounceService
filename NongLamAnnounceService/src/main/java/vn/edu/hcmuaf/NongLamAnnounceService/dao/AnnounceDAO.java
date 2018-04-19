@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
@@ -119,6 +118,7 @@ public class AnnounceDAO {
 			pr.setString(4, class_id);
 			i = pr.executeUpdate();
 			pr.close();
+			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

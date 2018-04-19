@@ -13,15 +13,12 @@ import vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser;
 
 @Path("/user")
 public class UserServices {
-
-	String id = UserServices.class.getAnnotation(Path.class).value();
-	String pass = UserServices.class.getAnnotation(Path.class).value();
 	
 	@GET
 	@Path("/login/{id}/{password}")
 	@Produces("application/json; charset=UTF-8")
-	public boolean login() {
-		return UserDAO.login(id, pass);
+	public String login(@PathParam("id")String id, @PathParam("password")String pass) {
+		return UserDAO.login(id, pass)? "Đăng nhập thành công" : "Đăng nhập thất bại";
 	}
 	
 	@GET
