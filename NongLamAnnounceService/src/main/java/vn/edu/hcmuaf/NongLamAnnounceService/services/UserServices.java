@@ -18,7 +18,7 @@ public class UserServices {
 	@Path("/login/{id}/{password}")
 	@Produces("application/json; charset=UTF-8")
 	public String login(@PathParam("id")String id, @PathParam("password")String pass) {
-		return UserDAO.login(id, pass)? "Đăng nhập thành công" : "Đăng nhập thất bại";
+		return UserDAO.login(id, pass)? "true" : "false";
 	}
 	
 	@GET
