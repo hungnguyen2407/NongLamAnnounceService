@@ -24,7 +24,7 @@ public class AnnounceDAO {
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
-				Date date = rs.getDate("post_date");
+				String date = rs.getDate("post_date")+"";
 				Announce a = new Announce(postId, id, title, content, classId, date);
 				list.add(a);
 			}
@@ -49,7 +49,7 @@ public class AnnounceDAO {
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
-				Date date = rs.getDate("post_date");
+				String date = rs.getDate("post_date")+"";
 				Announce a = new Announce(postId, id, title, content, classId, date);
 				list.add(a);
 			}
@@ -92,7 +92,7 @@ public class AnnounceDAO {
 				String title = rs.getString("title");
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
-				Date date = rs.getDate("post_date");
+				String date = rs.getDate("post_date")+"";
 				p.setPostId(postId);
 				p.setId(id);
 				p.setTitle(title);
