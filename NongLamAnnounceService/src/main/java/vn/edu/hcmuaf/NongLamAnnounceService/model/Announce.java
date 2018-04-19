@@ -11,18 +11,25 @@ public class Announce {
 	private String title;
 	private String content;
 	private String classId;
-	private String date;
+	private Date date;
 	
 	public Announce() {
 	}
 	
-	public Announce(String postId, String id, String title, String content, String classId, String date) {
+	public Announce(String postId, String id, String title, String content, String classId, Date date) {
 		this.postId = postId;
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.classId = classId;
 		this.date = date;
+	}
+	
+	public Announce(String id, String title, String content, String classId) {
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.classId = classId;
 	}
 
 	public String getPostId() {
@@ -65,11 +72,11 @@ public class Announce {
 		this.classId = classId;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 }
