@@ -18,7 +18,7 @@ public class UserServices {
 	String pass = UserServices.class.getAnnotation(Path.class).value();
 	
 	@GET
-	@Path("/login")
+	@Path("/login/{id}/{password}")
 	@Produces("application/json; charset=UTF-8")
 	public boolean login() {
 		return UserDAO.login(id, pass);
