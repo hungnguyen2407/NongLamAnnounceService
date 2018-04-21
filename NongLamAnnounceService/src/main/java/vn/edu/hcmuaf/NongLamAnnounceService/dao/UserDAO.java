@@ -41,11 +41,10 @@ public class UserDAO {
 			ResultSet rs = pr.executeQuery();
 			while (rs.next()) {
 				String class_id = rs.getString("class_id");
-				String email = rs.getString("email");
-				String lname = rs.getString("lname");
-				String fname = rs.getString("fname");
+				String class_name = rs.getString("class_name");
 				String faculty_id = rs.getString("faculty_id");
-				InfoGroupOfUser i = new InfoGroupOfUser(id, class_id, email, lname, fname, faculty_id);
+				int number = rs.getInt("SL");
+				InfoGroupOfUser i = new InfoGroupOfUser(id, class_id, class_name, faculty_id, number);
 				list.add(i);
 			}
 			conn.close();

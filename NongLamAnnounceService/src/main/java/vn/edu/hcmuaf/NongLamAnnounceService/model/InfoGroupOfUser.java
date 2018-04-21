@@ -6,21 +6,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class InfoGroupOfUser {
 	private String id;
 	private String class_id;
-	private String email;
-	private String lname;
-	private String fname;
+	private String class_name;
 	private String faculty_id;
+	private int number;
 	
 	public InfoGroupOfUser() {
 	}
 
-	public InfoGroupOfUser(String id, String class_id, String email, String lname, String fname, String faculty_id) {
+	public InfoGroupOfUser(String id, String class_id, String class_name, String faculty_id, int number) {
+		super();
 		this.id = id;
 		this.class_id = class_id;
-		this.email = email;
-		this.lname = lname;
-		this.fname = fname;
+		this.class_name = class_name;
 		this.faculty_id = faculty_id;
+		this.number = number;
 	}
 
 	public String getId() {
@@ -39,28 +38,12 @@ public class InfoGroupOfUser {
 		this.class_id = class_id;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getClass_name() {
+		return class_name;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setClass_name(String class_name) {
+		this.class_name = class_name;
 	}
 
 	public String getFaculty_id() {
@@ -69,5 +52,13 @@ public class InfoGroupOfUser {
 
 	public void setFaculty_id(String faculty_id) {
 		this.faculty_id = faculty_id;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 }
