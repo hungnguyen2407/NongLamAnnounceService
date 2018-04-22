@@ -128,4 +128,48 @@ public class AnnounceDAO {
 		}
 		return false;
 	}
+
+	public static boolean deleteAnnounce(String post_id) {
+		int i;
+		try {
+			Connection conn = MyConnection.getConnection();
+			String sql = "call p_del_post (?);";
+			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+			int id = Integer.parseInt(post_id);
+			pr.setInt(1, id);
+			i = pr.executeUpdate();
+			pr.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		if (i > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean updateAnnounce(String post_id, String title, String content) {
+		int i;
+		try {
+			Connection conn = MyConnection.getConnection();
+			String sql = "call p_update_post (?, ?, ?);";
+			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+			int id = Integer.parseInt(post_id);
+			pr.setInt(1, id);
+			pr.setNString(2, title);
+			pr.setNString(3, content);
+			i = pr.executeUpdate();
+			pr.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		if (i > 0) {
+			return true;
+		}
+		return false;
+	}
 }

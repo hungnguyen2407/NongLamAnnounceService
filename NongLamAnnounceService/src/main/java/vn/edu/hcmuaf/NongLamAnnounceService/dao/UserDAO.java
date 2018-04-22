@@ -53,4 +53,42 @@ public class UserDAO {
 		}
 		return list;
 	}
+
+	public static boolean setLevel(String id, String target, String lv) {
+		int i;
+		String sql;
+		byte v = 0;//level của người set quyền
+		try {
+			PreparedStatement pr;
+			Connection conn = MyConnection.getConnection();
+			byte l =  Byte.parseByte(lv);//level được cấp của người được set quyền
+			
+			sql = "select levels from accounts where id = ?;";
+			pr = (PreparedStatement) conn.prepareStatement(sql);
+			pr.setString(1, id);
+			ResultSet rs = pr.executeQuery();
+			while(rs.next()){
+				v = rs.getByte("levels");
+			}
+			
+			if(l < v){
+				return false;
+			}
+			
+			sql = "call p_update_level (?, ?);";
+			pr = (PreparedStatement) conn.prepareStatement(sql);
+			pr.setString(1, target);
+			pr.setByte(2, l);
+			i = pr.executeUpdate();
+			pr.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		if (i > 0) {
+			return true;
+		}
+		return false;
+	}
 }
