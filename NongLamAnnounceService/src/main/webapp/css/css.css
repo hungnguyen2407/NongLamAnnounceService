@@ -148,6 +148,7 @@
 .tabcontent {
 	padding-right: 0px;
 	margin-right: 10px;
+	display: none;
 }
 .tabcontent h3{
 	background-color: #00D046;
