@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vn.edu.hcmuaf.NongLamAnnounceService.dao.InformationUserDAO;
-import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 
 /**
  * Servlet implementation class XuLyDangXuat
@@ -39,7 +37,7 @@ public class XuLyDangXuat extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session= request.getSession() ;
+		HttpSession session= request.getSession();
 		session.removeAttribute("user");
 		response.sendRedirect("../NongLamAnnounceService/index.jsp");
 	}

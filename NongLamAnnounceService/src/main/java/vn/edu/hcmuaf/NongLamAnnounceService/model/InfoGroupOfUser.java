@@ -8,18 +8,18 @@ public class InfoGroupOfUser {
 	private String class_id;
 	private String class_name;
 	private String faculty_id;
-	private int number;
+	private int class_mem_num;
 	
 	public InfoGroupOfUser() {
 	}
 
-	public InfoGroupOfUser(String id, String class_id, String class_name, String faculty_id, int number) {
+	public InfoGroupOfUser(String id, String class_id, String class_name, String faculty_id, int class_mem_num) {
 		super();
 		this.id = id;
 		this.class_id = class_id;
 		this.class_name = class_name;
 		this.faculty_id = faculty_id;
-		this.number = number;
+		this.class_mem_num = class_mem_num;
 	}
 
 	public String getId() {
@@ -54,11 +54,11 @@ public class InfoGroupOfUser {
 		this.faculty_id = faculty_id;
 	}
 
-	public int getNumber() {
-		return number;
+	public int getClass_mem_num() {
+		return class_mem_num;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setClass_mem_num(int number) {
+		this.class_mem_num = number;
 	}
 }

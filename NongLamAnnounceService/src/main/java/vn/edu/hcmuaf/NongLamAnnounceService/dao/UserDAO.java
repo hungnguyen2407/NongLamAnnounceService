@@ -8,6 +8,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 
 public class UserDAO {
 
@@ -90,5 +91,35 @@ public class UserDAO {
 			return true;
 		}
 		return false;
+	}
+
+	public static InformationUser getInfoUser(String id) {
+		InformationUser u = new InformationUser();
+		try {
+			Connection conn = MyConnection.getConnection();
+			String sql = "select * from v_account where id = ?;";
+			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+			pr.setString(1, id);
+			ResultSet rs = pr.executeQuery();
+			while (rs.next()) {
+				String uid = rs.getString("id");
+				String email = rs.getString("email");
+				String fname = rs.getString("fname");
+				String lname = rs.getString("lname");
+				String faculty_id = rs.getString("faculty_id");
+				String class_id = rs.getString("class_id");
+				u.setId(uid);
+				u.setEmail(email);
+				u.setfName(fname);
+				u.setlName(lname);
+				u.setFacultyID(faculty_id);
+				u.setClassID(class_id);
+			}
+			conn.close();
+			return u;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return u;
+		}
 	}
 }

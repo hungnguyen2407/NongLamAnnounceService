@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 
 import vn.edu.hcmuaf.NongLamAnnounceService.dao.UserDAO;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 
 @Path("/user")
 public class UserServices {
@@ -45,5 +46,18 @@ public class UserServices {
 	@Produces("application/json; charset=UTF-8")
 	public String setLevel(@PathParam("id")String id,@PathParam("id_target")String target, @PathParam("lv")String lv) {
 		return UserDAO.setLevel(id, target, lv) ? "Thành công" : "Thất bại";
+	}
+	
+	/**
+	 * Lấy ra thông tin của user
+	 * @param id
+	 * @param pass
+	 * @return
+	 */
+	@GET
+	@Path("/infor/{id}")
+	@Produces("application/json; charset=UTF-8")
+	public InformationUser getInfoUser(@PathParam("id")String id) {
+		return UserDAO.getInfoUser(id);
 	}
 }
