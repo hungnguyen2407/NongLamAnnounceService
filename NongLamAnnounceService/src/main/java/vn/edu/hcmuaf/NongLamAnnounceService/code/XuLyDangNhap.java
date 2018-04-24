@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import vn.edu.hcmuaf.NongLamAnnounceService.dao.InformationUserDAO;
 import vn.edu.hcmuaf.NongLamAnnounceService.dao.ListClassDAO;
+import vn.edu.hcmuaf.NongLamAnnounceService.dao.UserDAO;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.ListClass;
 
@@ -49,10 +50,9 @@ public class XuLyDangNhap extends HttpServlet {
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
 		boolean error = false;
-		ReadURL readURL = new ReadURL();
-		String dangNhap = readURL.readData("http://localhost:8080/NongLamAnnounceService/webresources/user/login/"+user+"/"+pass+"");
+		boolean dangNhap = UserDAO.login(user, pass);
 		String DangNhap_err = "";
-		if (dangNhap.equals("false")) {
+		if (!dangNhap) {
 		DangNhap_err = "Sai thông tin đăng nhập !";
 		error = true;
 		request.setAttribute("DangNhap_err", DangNhap_err);
