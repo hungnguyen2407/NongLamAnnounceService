@@ -17,7 +17,7 @@
 					<label for="user"></label> <input type="text" name="user"
 						id="tentaikhoan"
 						style="margin-top: 10%; width: 90%; min-height: 30px; border-radius: 5px 5px 5px 5px;"
-						placeholder="Email" /> <label for="pass"></label> <input
+						placeholder="ID" /> <label for="pass"></label> <input
 						type="password" name="pass" id="pass"
 						style="margin-top: 10%; width: 90%; min-height: 30px; border-radius: 5px 5px 5px 5px;"
 						placeholder="Mật khẩu" />
