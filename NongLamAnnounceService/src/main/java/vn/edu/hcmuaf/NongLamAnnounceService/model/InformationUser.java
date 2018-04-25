@@ -12,6 +12,7 @@ public class InformationUser {
 	private String facultyID;
 	private String classID;
 	private String pass;
+	private String url_avatar;
 	private int level;
 
 	public InformationUser() {
@@ -87,6 +88,14 @@ public class InformationUser {
 
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
+	}
+
+	public String getUrl_avatar() {
+		return url_avatar;
+	}
+
+	public void setUrl_avatar(String url_avatar) {
+		this.url_avatar = url_avatar;
 	}
 
 }

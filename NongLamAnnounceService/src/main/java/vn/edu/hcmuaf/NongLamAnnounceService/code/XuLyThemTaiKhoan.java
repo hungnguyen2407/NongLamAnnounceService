@@ -26,7 +26,7 @@ import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 		* 100)
 public class XuLyThemTaiKhoan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String UPLOADFILE = "D:\\eclipse oxygen\\NongLamAnnounceService\\NongLamAnnounceService\\src\\main\\webapp\\UploadFile";
+	private final String UPLOADFILE = "D:\\ZGame\\File";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -63,8 +63,8 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 		String birthday = request.getParameter("date");
 		String facultyID = request.getParameter("khoa");
 		String classID = request.getParameter("class");
-		String pass = request.getParameter("pass");
-		UserDAO.addUser(id, email, fName, lName, birthday, facultyID, classID, pass);
+		String url = request.getParameter("pass");
+		UserDAO.addUser(id, email, fName, lName, birthday, facultyID, classID, url);
 		
 		String fileDir = "";
 		if (ServletFileUpload.isMultipartContent(request)) {
@@ -81,7 +81,7 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 				for (InformationUser informationUser : listUser) {
 					UserDAO.addUser(informationUser.getId(), informationUser.getEmail(), informationUser.getfName(),
 							informationUser.getlName(), informationUser.getBirthday(), informationUser.getFacultyID(), informationUser.getClassID(),
-							informationUser.getPass());
+							informationUser.getUrl_avatar());
 				}
 				// File uploaded successfully
 				request.setAttribute("message", "File Uploaded Successfully");
