@@ -35,4 +35,34 @@
     <servlet-name>XuLyDangXuat</servlet-name>
     <url-pattern>/XuLyDangXuat</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuenMatKhau</display-name>
+    <servlet-name>QuenMatKhau</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.QuenMatKhau</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuenMatKhau</servlet-name>
+    <url-pattern>/QuenMatKhau</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyQuenMatKhau</display-name>
+    <servlet-name>XuLyQuenMatKhau</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyQuenMatKhau</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyQuenMatKhau</servlet-name>
+    <url-pattern>/XuLyQuenMatKhau</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyThemTaiKhoan</display-name>
+    <servlet-name>XuLyThemTaiKhoan</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyThemTaiKhoan</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyThemTaiKhoan</servlet-name>
+    <url-pattern>/XuLyThemTaiKhoan</url-pattern>
+  </servlet-mapping>
 </web-app>

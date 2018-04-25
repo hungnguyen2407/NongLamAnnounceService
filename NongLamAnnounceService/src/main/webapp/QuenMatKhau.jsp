@@ -14,7 +14,7 @@
     <center>
     <div id="dn">
     <h2><u>Quên mật khẩu</u></h2>
-      <form id="form1" name="form1" method="post" action="">
+      <form id="form1" name="form1" method="post" action="XuLyQuenMatKhau">
 	  <label for="user"></label>
 	  <input type="text" name="tenuser" id="tentaikhoan" 
       style="margin-top:10%; width:90%; min-height:30px; border-radius: 5px 5px 5px 5px;" placeholder="Nhập email"/>

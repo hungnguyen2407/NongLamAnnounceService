@@ -146,7 +146,7 @@
                         <!-- BEGIN FORM-->
                        		
                         <!-- END FORM-->           
-                       <form name="form1" method="post" action="">
+                       <form name="form1" method="post" action="XuLyThemTaiKhoan" enctype="multipart/form-data">
                          <table width="479" height="373" border="0" align="center">
                            <tr>
                              <td width="127" align="center">Mã sinh viên</td>
@@ -186,10 +186,11 @@
                            <tr>
                              <td align="center">Mật khẩu</td>
                              <td><label for="pass"></label>
-                             <input type="text" name="pass" id="pass" style="margin-left:20px;"></td>
+                             <input type="password" name="pass" id="pass" style="margin-left:20px;"></td>
                            </tr>
                          </table>
                          <p align="center">
+                         	<input type="file" name="file" id="fileUpload"><br>
                            	<input type="submit" name="themtin" value="Thêm tài khoản"/>
                            </p>
                        </form>
