@@ -36,7 +36,6 @@ public class PostDAO {
 		return null;
 	}
 	public static void main(String[] args) {
-		List<Post> list = PostDAO.getPost("DHNL");
-		
+//		List<Post> list = PostDAO.getPost("DHNL");
 	}
 }

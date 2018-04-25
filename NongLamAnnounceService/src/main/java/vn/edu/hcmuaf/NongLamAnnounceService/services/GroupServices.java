@@ -15,7 +15,6 @@ public class GroupServices {
 	@Path("/join/{class_id}/{id}")
 	@Produces("application/json; charset=UTF-8")
 	public String joinGroup(@PathParam("class_id")String class_id, @PathParam("id")String id) {
-		return GroupDAO.joinGroup(class_id, id) ? "Đăng ký vào group " + class_id + " thành công"
-				: "Đăng ký vào group " + class_id + " thất bại";
+		return GroupDAO.joinGroup(class_id, id) ? "true" : "false";
 	}
 }

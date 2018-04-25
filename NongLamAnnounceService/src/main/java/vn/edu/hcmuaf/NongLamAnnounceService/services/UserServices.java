@@ -45,7 +45,7 @@ public class UserServices {
 	@Path("/levelupdate/{id}/{id_target}/{lv}")
 	@Produces("application/json; charset=UTF-8")
 	public String setLevel(@PathParam("id")String id,@PathParam("id_target")String target, @PathParam("lv")String lv) {
-		return UserDAO.setLevel(id, target, lv) ? "Thành công" : "Thất bại";
+		return UserDAO.setLevel(id, target, lv) ? "true" : "false";
 	}
 	
 	/**

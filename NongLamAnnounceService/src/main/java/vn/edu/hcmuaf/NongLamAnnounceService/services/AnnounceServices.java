@@ -82,25 +82,25 @@ public class AnnounceServices {
 	 * @return "Thành công" hoặc "Thất bại"
 	 */
 	@POST
-	@Path("/add/{id}/{title}/{content}/{class_id}")
+	@Path("/add/{id}/{title}/{content}/{class_id}/{url_img}")
 	@Produces("application/json; charset=UTF-8")
 	public String insertAnnounce(@PathParam("id") String id, @PathParam("title") String title,
-			@PathParam("content") String content, @PathParam("class_id") String class_id) {
-		return AnnounceDAO.insertAnnounce(id, title, content, class_id) ? "Thành công" : "Thất bại";
+			@PathParam("content") String content, @PathParam("class_id") String class_id, @PathParam("url_img") String url_img) {
+		return AnnounceDAO.insertAnnounce(id, title, content, class_id, url_img) ? "true" : "false";
 	}
 
 	@DELETE
 	@Path("/del/{post_id}")
 	@Produces("application/json; charset=UTF-8")
 	public String deleteAnnounce(@PathParam("post_id") String post_id) {
-		return AnnounceDAO.deleteAnnounce(post_id) ? "Thành công" : "Thất bại";
+		return AnnounceDAO.deleteAnnounce(post_id) ? "true" : "false";
 	}
 
 	@PUT
-	@Path("/update/{post_id}/{title}/{content}")
+	@Path("/update/{post_id}/{title}/{content}/{url_img}")
 	@Produces("application/json; charset=UTF-8")
 	public String updateAnnounce(@PathParam("post_id") String post_id, @PathParam("title") String title,
-			@PathParam("content") String content) {
-		return AnnounceDAO.updateAnnounce(post_id, title, content) ? "Thành công" : "Thất bại";
+			@PathParam("content") String content, @PathParam("url_img") String url_img) {
+		return AnnounceDAO.updateAnnounce(post_id, title, content, url_img) ? "true" : "false";
 	}
 }

@@ -10,17 +10,19 @@ public class Announce {
 	private String content;
 	private String classId;
 	private String date;
+	private String url_img;
 	
 	public Announce() {
 	}
 	
-	public Announce(String postId, String id, String title, String content, String classId, String date) {
+	public Announce(String postId, String id, String title, String content, String classId, String date, String url_img) {
 		this.postId = postId;
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.classId = classId;
 		this.date = date;
+		this.url_img = url_img;
 	}
 	
 	public Announce(String id, String title, String content, String classId) {
@@ -76,5 +78,13 @@ public class Announce {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getUrl_img() {
+		return url_img;
+	}
+
+	public void setUrl_img(String url_img) {
+		this.url_img = url_img;
 	}
 }

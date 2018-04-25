@@ -7,9 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class ReadURL {
 	public ReadURL() {
 
@@ -23,7 +20,6 @@ public class ReadURL {
 			URL obj = new URL(url);
 			HttpURLConnection con;
 			con = (HttpURLConnection) obj.openConnection();
-			int responseCode = con.getResponseCode();
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			String inputLine;
 			StringBuffer reponse = new StringBuffer();
@@ -45,6 +41,6 @@ public class ReadURL {
 
 	public static void main(String[] args) {
 		ReadURL readURL = new ReadURL();
-		String s = readURL.readData("http://localhost:8080/NongLamAnnounceService/webresources/announce/all");
+		readURL.readData("http://localhost:8080/NongLamAnnounceService/webresources/announce/all");
 	}
 }

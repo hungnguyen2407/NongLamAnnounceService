@@ -24,7 +24,8 @@ public class AnnounceDAO {
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
 				String date = rs.getDate("post_date")+"";
-				Announce a = new Announce(postId, id, title, content, classId, date);
+				String url_img = rs.getString("url_img");
+				Announce a = new Announce(postId, id, title, content, classId, date, url_img);
 				list.add(a);
 			}
 			conn.close();
@@ -49,7 +50,8 @@ public class AnnounceDAO {
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
 				String date = rs.getDate("post_date")+"";
-				Announce a = new Announce(postId, id, title, content, classId, date);
+				String url_img = rs.getString("url_img");
+				Announce a = new Announce(postId, id, title, content, classId, date, url_img);
 				list.add(a);
 			}
 			conn.close();
@@ -92,12 +94,14 @@ public class AnnounceDAO {
 				String content = rs.getString("content");
 				String classId = rs.getString("class_id");
 				String date = rs.getDate("post_date")+"";
+				String url_img = rs.getString("url_img");
 				p.setPostId(postId);
 				p.setId(id);
 				p.setTitle(title);
 				p.setContent(content);
 				p.setClassId(classId);
 				p.setDate(date);
+				p.setUrl_img(url_img);
 			}
 			conn.close();
 		} catch (Exception e) {
@@ -106,16 +110,17 @@ public class AnnounceDAO {
 		return p;
 	}
 
-	public static boolean insertAnnounce(String id, String title, String content, String class_id) {
+	public static boolean insertAnnounce(String id, String title, String content, String class_id, String url_img) {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_insert_post (?, ?, ?, ?);";
+			String sql = "call p_insert_post (?, ?, ?, ?, ?);";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			pr.setNString(2, title);
 			pr.setNString(3, content);
 			pr.setString(4, class_id);
+			pr.setString(5, url_img);
 			i = pr.executeUpdate();
 			pr.close();
 			conn.close();
@@ -150,16 +155,17 @@ public class AnnounceDAO {
 		return false;
 	}
 
-	public static boolean updateAnnounce(String post_id, String title, String content) {
+	public static boolean updateAnnounce(String post_id, String title, String content, String url_img) {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_update_post (?, ?, ?);";
+			String sql = "call p_update_post (?, ?, ?, ?);";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			int id = Integer.parseInt(post_id);
 			pr.setInt(1, id);
 			pr.setNString(2, title);
 			pr.setNString(3, content);
+			pr.setNString(4, url_img);
 			i = pr.executeUpdate();
 			pr.close();
 			conn.close();
