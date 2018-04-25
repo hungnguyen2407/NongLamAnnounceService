@@ -9,7 +9,9 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Produces;
 
+import vn.edu.hcmuaf.NongLamAnnounceService.code.SendMail;
 import vn.edu.hcmuaf.NongLamAnnounceService.dao.UserDAO;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.FormMail;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.RandomString;
@@ -110,12 +112,15 @@ public class UserServices {
 	 * @param id mã user
 	 * @return "true" hoặc "false"
 	 */
-	@PUT
+	@GET
 	@Path("/resetpass/{id}")
 	@Produces("application/json; charset=UTF-8")
 	public String resetPass(@PathParam("id") String id) {
 		String new_pass = RandomString.randomString(8);//gọi ra phương thức lấy pass ngẫu nhiên
-		//phương thức gửi mail về cho user
-		return UserDAO.updatePassword(id, new_pass) ? "true" : "false";
+		String email = UserDAO.getInfoUser(id).getEmail();
+		if(SendMail.sendMail(email, FormMail.forgetPasswordTemplate("14130373", new_pass), "LẤY LẠI MẬT KHẨU")){
+			return UserDAO.updatePassword(id, new_pass) ? "true" : "false";
+		}
+		return "false";
 	}
 }

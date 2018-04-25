@@ -53,7 +53,7 @@ public class GroupServices {
 	 * @return "true" hoặc "false"
 	 */
 	@POST
-	@Path("/join/{class_id}/{id}")
+	@Path("/accede/{class_id}/{id}")
 	@Produces("application/json; charset=UTF-8")
 	public String accedeGroup(@PathParam("class_id") String class_id, @PathParam("id") String id) {
 		return GroupDAO.accedeGroup(class_id, id) ? "true" : "false";
