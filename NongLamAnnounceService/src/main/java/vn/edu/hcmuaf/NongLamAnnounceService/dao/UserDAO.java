@@ -160,4 +160,25 @@ public class UserDAO {
 		}
 		return false;
 	}
+	
+	public static boolean updatePassword(String id, String pass) {
+		int i;
+		try {
+			Connection conn = MyConnection.getConnection();
+			String sql = "call p_update_pass (?, ?);";
+			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+			pr.setString(1, id);
+			pr.setNString(2, pass);
+			i = pr.executeUpdate();
+			pr.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		if (i > 0) {
+			return true;
+		}
+		return false;
+	}
 }
