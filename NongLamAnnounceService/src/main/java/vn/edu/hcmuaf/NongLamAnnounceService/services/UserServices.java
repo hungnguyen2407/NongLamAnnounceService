@@ -55,7 +55,7 @@ public class UserServices {
 	 * @return
 	 */
 	@GET
-	@Path("/infor/{id}")
+	@Path("/info/{id}")
 	@Produces("application/json; charset=UTF-8")
 	public InformationUser getInfoUser(@PathParam("id")String id) {
 		return UserDAO.getInfoUser(id);

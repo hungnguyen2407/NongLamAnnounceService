@@ -8,6 +8,7 @@ public class InformationUser {
 	private String email;
 	private String fName;
 	private String lName;
+	private String birthday;
 	private String facultyID;
 	private String classID;
 	private String pass;
@@ -78,6 +79,14 @@ public class InformationUser {
 
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 }
