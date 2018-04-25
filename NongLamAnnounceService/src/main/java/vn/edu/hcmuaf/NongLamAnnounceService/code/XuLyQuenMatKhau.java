@@ -1,11 +1,16 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.code;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import vn.edu.hcmuaf.NongLamAnnounceService.dao.UserDAO;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.FormMail;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.RandomString;
 
 /**
  * Servlet implementation class XuLyQuenMatKhau
@@ -37,7 +42,12 @@ public class XuLyQuenMatKhau extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		String user = request.getParameter("tenuser");
-		System.out.println(user);
+		String new_pass = RandomString.randomString(8);//gọi ra phương thức lấy pass ngẫu nhiên
+		String email = UserDAO.getInfoUser(user).getEmail();
+		if(SendMail.sendMail(email, FormMail.forgetPasswordTemplate(user, new_pass), "LẤY LẠI MẬT KHẨU")){
+			UserDAO.updatePassword(user, new_pass);
+		}
+		request.getRequestDispatcher("/DangNhap.jsp").forward(request, response);
 	}
 
 }

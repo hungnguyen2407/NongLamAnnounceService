@@ -10,13 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import vn.edu.hcmuaf.NongLamAnnounceService.dao.InformationUserDAO;
+import vn.edu.hcmuaf.NongLamAnnounceService.dao.UserDAO;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 
 /**
@@ -61,10 +60,11 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 		String email = request.getParameter("mail");
 		String fName = request.getParameter("iname");
 		String lName = request.getParameter("fname");
+		String birthday = request.getParameter("date");
 		String facultyID = request.getParameter("khoa");
 		String classID = request.getParameter("class");
 		String pass = request.getParameter("pass");
-		InformationUserDAO.addUser(id, email, fName, lName, facultyID, classID, pass);
+		UserDAO.addUser(id, email, fName, lName, birthday, facultyID, classID, pass);
 		
 		String fileDir = "";
 		if (ServletFileUpload.isMultipartContent(request)) {
@@ -79,8 +79,8 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 				}
 				List<InformationUser> listUser = ReadExcel.readUserExcel(fileDir);
 				for (InformationUser informationUser : listUser) {
-					InformationUserDAO.addUser(informationUser.getId(), informationUser.getEmail(), informationUser.getfName(),
-							informationUser.getlName(), informationUser.getFacultyID(), informationUser.getClassID(),
+					UserDAO.addUser(informationUser.getId(), informationUser.getEmail(), informationUser.getfName(),
+							informationUser.getlName(), informationUser.getBirthday(), informationUser.getFacultyID(), informationUser.getClassID(),
 							informationUser.getPass());
 				}
 				// File uploaded successfully

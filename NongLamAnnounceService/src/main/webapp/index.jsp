@@ -1,9 +1,9 @@
-<%@page import="vn.edu.hcmuaf.NongLamAnnounceService.model.ListClass"%>
+<%@page import="vn.edu.hcmuaf.NongLamAnnounceService.dao.AnnounceDAO"%>
+<%@page import="vn.edu.hcmuaf.NongLamAnnounceService.model.Announce"%>
+<%@page import="vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser"%>
 <%@page
 	import="vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser"%>
 <%@page import="java.util.List"%>
-<%@page import="vn.edu.hcmuaf.NongLamAnnounceService.model.Post"%>
-<%@page import="vn.edu.hcmuaf.NongLamAnnounceService.dao.PostDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -85,13 +85,11 @@
 					<div class="tabs">
 						<%
 							if (session.getAttribute("listClass") != null) {
-								ListClass listClass = (ListClass) session.getAttribute("listClass");
-								List<String> listName = listClass.getListClassName();
-								List<String> listClassID = listClass.getListClassID();
-								for (int i = 0; i < listName.size(); i++) {
+								List<InfoGroupOfUser> listClass = (List<InfoGroupOfUser>) session.getAttribute("listClass");
+								for (int i = 0; i < listClass.size(); i++) {
 						%>
 						<button class="tablinks"
-							onclick="openCity(event, '<%=listClassID.get(i)%>')"><%=listName.get(i)%></button>
+							onclick="openCity(event, '<%=listClass.get(i).getClass_id()%>')"><%=listClass.get(i).getClass_name()%></button>
 						<%
 							}
 						%>
@@ -116,12 +114,12 @@
 			<!--end timkiem-->
 			<hr width="99%" color="#999999" />
 
-			<% for (int i=0;i<listClassID.size();i++){%>
-				<div id="<%=listClassID.get(i)%>" class="tabcontent">
-				<% List<Post> listPost = PostDAO.getPost(listClassID.get(i));
-					if(listPost!=null) for(int j=0;j<listPost.size();j++){%>
-						<h3><%=listPost.get(j).getTitle()%></h3>
-						<p><%=listPost.get(j).getContent()%></p>
+			<% for (int i=0;i<listClass.size();i++){%>
+				<div id="<%=listClass.get(i).getClass_id()%>" class="tabcontent">
+				<% List<Announce> listAnnounce = AnnounceDAO.getAnnounceList(listClass.get(i).getClass_id());
+					if(listAnnounce!=null) for(int j=0;j<listAnnounce.size();j++){%>
+						<h3><%=listAnnounce.get(j).getTitle()%></h3>
+						<p><%=listAnnounce.get(j).getContent()%></p>
 				<% 
 				}
 				%>
@@ -130,6 +128,7 @@
 			}
 			}
 			%>
+		</div>
 		</div>
 		<!--end homeright-->
 </body>

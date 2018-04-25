@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.code;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vn.edu.hcmuaf.NongLamAnnounceService.dao.InformationUserDAO;
-import vn.edu.hcmuaf.NongLamAnnounceService.dao.ListClassDAO;
 import vn.edu.hcmuaf.NongLamAnnounceService.dao.UserDAO;
+import vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
-import vn.edu.hcmuaf.NongLamAnnounceService.model.ListClass;
 
 /**
  * Servlet implementation class XuLyDangNhap
@@ -63,8 +62,8 @@ public class XuLyDangNhap extends HttpServlet {
 		}  
 		else{
 		HttpSession session= request.getSession() ;
-		InformationUser informationUser = InformationUserDAO.getInforUser(user);
-		ListClass listClass = ListClassDAO.getListClass(user);
+		InformationUser informationUser = UserDAO.getInfoUser(user);
+		List<InfoGroupOfUser> listClass = UserDAO.getdsGroupOfUser(user);
 		session.setAttribute("user", informationUser);
 		session.setAttribute("listClass", listClass);
 		response.sendRedirect("../NongLamAnnounceService/index.jsp");

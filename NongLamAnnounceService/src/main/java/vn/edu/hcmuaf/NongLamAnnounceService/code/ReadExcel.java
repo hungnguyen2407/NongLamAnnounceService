@@ -97,18 +97,22 @@ public class ReadExcel {
 							x++;
 							break;
 						case 4:
-							user.setFacultyID(cell.getStringCellValue());
+							user.setBirthday(cell.getStringCellValue());
 							x++;
 							break;
 						case 5:
-							user.setClassID(cell.getStringCellValue());
+							user.setFacultyID(cell.getStringCellValue());
 							x++;
 							break;
 						case 6:
-							user.setPass(cell.getStringCellValue());
+							user.setClassID(cell.getStringCellValue());
 							x++;
 							break;
 						case 7:
+							user.setPass(cell.getStringCellValue());
+							x++;
+							break;
+						case 8:
 							user.setLevel(Integer.valueOf(cell.getStringCellValue()));
 							x++;
 							break;

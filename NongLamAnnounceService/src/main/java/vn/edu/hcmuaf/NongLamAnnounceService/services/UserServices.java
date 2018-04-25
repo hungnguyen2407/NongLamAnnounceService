@@ -118,7 +118,7 @@ public class UserServices {
 	public String resetPass(@PathParam("id") String id) {
 		String new_pass = RandomString.randomString(8);//gọi ra phương thức lấy pass ngẫu nhiên
 		String email = UserDAO.getInfoUser(id).getEmail();
-		if(SendMail.sendMail(email, FormMail.forgetPasswordTemplate("14130373", new_pass), "LẤY LẠI MẬT KHẨU")){
+		if(SendMail.sendMail(email, FormMail.forgetPasswordTemplate(id, new_pass), "LẤY LẠI MẬT KHẨU")){
 			return UserDAO.updatePassword(id, new_pass) ? "true" : "false";
 		}
 		return "false";
