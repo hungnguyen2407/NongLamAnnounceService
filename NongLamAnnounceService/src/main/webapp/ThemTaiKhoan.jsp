@@ -146,7 +146,7 @@
                         <!-- BEGIN FORM-->
                        		
                         <!-- END FORM-->           
-                       <form name="form1" method="post" action="XuLyThemTaiKhoan" enctype="multipart/form-data">
+                       <form name="form1" method="post" action="XulyThemTaiKhoanFrom">
                          <table width="479" height="373" border="0" align="center">
                            <tr>
                              <td width="127" align="center">Mã sinh viên</td>
@@ -190,9 +190,12 @@
                            </tr>
                          </table>
                          <p align="center">
-                         	<input type="file" name="file" id="fileUpload"><br>
                            	<input type="submit" name="themtin" value="Thêm tài khoản"/>
                            </p>
+                       </form>
+                       <form name="form1" method="post" action="XuLyThemTaiKhoan" enctype="multipart/form-data">    
+                       <input type="file" name="file" id="fileUpload"><br>
+                       <input type="submit" name="themtin" value="Thêm tài khoản"/>
                        </form>
                      </div>
                   </div>

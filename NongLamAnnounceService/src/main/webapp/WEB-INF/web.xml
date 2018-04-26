@@ -65,4 +65,14 @@
     <servlet-name>XuLyThemTaiKhoan</servlet-name>
     <url-pattern>/XuLyThemTaiKhoan</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyThemTKForm</display-name>
+    <servlet-name>XuLyThemTKForm</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyThemTKForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyThemTKForm</servlet-name>
+    <url-pattern>/XuLyThemTKForm</url-pattern>
+  </servlet-mapping>
 </web-app>

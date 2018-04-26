@@ -54,16 +54,6 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 		// process only if its multipart content
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html ;charset=UTF-8");
-		//Thêm tài khoản nhập từ from
-//		String id = request.getParameter("mssv");
-//		String email = request.getParameter("mail");
-//		String fName = request.getParameter("iname");
-//		String lName = request.getParameter("fname");
-//		String birthday = request.getParameter("date");
-//		String facultyID = request.getParameter("khoa");
-//		String classID = request.getParameter("class");
-//		String url = request.getParameter("pass");
-//		UserDAO.addUser(id, email, fName, lName, birthday, facultyID, classID, url);
 		
 		//thêm tài khoản import file excel
 		String uploadFolder =
