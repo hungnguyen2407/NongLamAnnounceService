@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import vn.edu.hcmuaf.NongLamAnnounceService.model.Announce;
 
@@ -65,7 +65,8 @@ public class AnnounceDAO {
 		List<Announce> list = new ArrayList<Announce>();
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_dsClass(?);";
+//			String sql = "call p_dsClass(?);";
+			String sql = "exec p_dsClass ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			ResultSet rs = pr.executeQuery();
@@ -84,7 +85,8 @@ public class AnnounceDAO {
 		Announce p = new Announce();
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "select * from post order by post_date desc limit 1;";
+//			String sql = "select * from post order by post_date desc limit 1;";
+			String sql = "select top 1 * from post order by post_date desc;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs = pr.executeQuery();
 			while (rs.next()) {
@@ -114,7 +116,8 @@ public class AnnounceDAO {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_insert_post (?, ?, ?, ?, ?);";
+//			String sql = "call p_insert_post (?, ?, ?, ?, ?);";
+			String sql = "exec p_insert_post ?, ?, ?, ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			pr.setNString(2, title);
@@ -138,7 +141,8 @@ public class AnnounceDAO {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_del_post (?);";
+//			String sql = "call p_del_post (?);";
+			String sql = "exec p_del_post ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			int id = Integer.parseInt(post_id);
 			pr.setInt(1, id);
@@ -159,7 +163,8 @@ public class AnnounceDAO {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_update_post (?, ?, ?, ?);";
+//			String sql = "call p_update_post (?, ?, ?, ?);";
+			String sql = "exec p_update_post ?, ?, ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			int id = Integer.parseInt(post_id);
 			pr.setInt(1, id);

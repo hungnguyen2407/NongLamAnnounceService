@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class GroupDAO {
 	public static boolean joinGroup(String class_id, String id){
@@ -28,7 +28,8 @@ public class GroupDAO {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_del_list(?, ?);";
+//			String sql = "call p_del_list(?, ?);";
+			String sql = "exec p_del_list ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, class_id);
 			pr.setString(2, id);

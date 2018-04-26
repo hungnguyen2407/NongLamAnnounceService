@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InfoGroupOfUser;
 import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
@@ -16,7 +16,8 @@ public class UserDAO {
 	public static boolean login(String id, String pass) {
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_login(?, ?);";
+//			String sql = "call p_login(?, ?);";
+			String sql = "exec p_login ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			pr.setString(2, pass);
@@ -36,7 +37,8 @@ public class UserDAO {
 
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_dsClass(?);";
+//			String sql = "call p_dsClass(?);";
+			String sql = "exec p_dsClass ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			ResultSet rs = pr.executeQuery();
@@ -77,7 +79,8 @@ public class UserDAO {
 				return false;
 			}
 
-			sql = "call p_update_level (?, ?);";
+//			sql = "call p_update_level (?, ?);";
+			sql = "exec p_update_level ?, ?;";
 			pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, target);
 			pr.setByte(2, l);
@@ -137,7 +140,8 @@ public class UserDAO {
 			}
 			
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_insert_accounts (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+//			String sql = "call p_insert_accounts (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+			String sql = "exec p_insert_accounts ?, ?, ?, ?, ?, ?, ?, ?, ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			pr.setNString(2, email);
@@ -165,7 +169,8 @@ public class UserDAO {
 		int i;
 		try {
 			Connection conn = MyConnection.getConnection();
-			String sql = "call p_update_pass (?, ?);";
+//			String sql = "call p_update_pass (?, ?);";
+			String sql = "exec p_update_pass ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
 			pr.setNString(2, pass);

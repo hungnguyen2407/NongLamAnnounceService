@@ -2,8 +2,8 @@ package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
 import java.sql.ResultSet;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class IdsDAO {
 	public static String getName(String type, String value) {

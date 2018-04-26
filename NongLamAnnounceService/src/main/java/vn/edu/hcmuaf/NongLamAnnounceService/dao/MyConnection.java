@@ -1,16 +1,20 @@
 package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 
-import com.mysql.jdbc.Connection;
 
 public class MyConnection {
 	public static Connection getConnection() {
 		Connection connection = null;
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/NotiApp?verifyServerCertificate=true&useSSL=true";
-		String user = "root";
-		String pass = "admin";
+//		String driver = "com.mysql.jdbc.Driver";
+//		String url = "jdbc:mysql://localhost:3306/NotiApp?verifyServerCertificate=true&useSSL=true";
+//		String user = "root";
+//		String pass = "admin";
+		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+		String url = "jdbc:sqlserver://projectmid.database.windows.net:1433;database=NotiApp";
+		String user = "nguyentu@projectmid";
+		String pass = "Microsoft24";
 		try {
 			Class.forName(driver);
 			connection = (Connection) DriverManager.getConnection(url, user, pass);
