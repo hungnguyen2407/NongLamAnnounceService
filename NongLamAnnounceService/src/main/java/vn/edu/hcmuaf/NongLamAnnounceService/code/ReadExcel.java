@@ -112,7 +112,7 @@ public class ReadExcel {
 							x++;
 							break;
 						case 8:
-							user.setLevel(Integer.valueOf(cell.getStringCellValue()));
+							user.setLevel(Byte.valueOf(cell.getStringCellValue()));
 							x++;
 							break;
 						default:

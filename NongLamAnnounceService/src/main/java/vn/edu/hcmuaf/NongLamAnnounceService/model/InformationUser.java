@@ -13,7 +13,7 @@ public class InformationUser {
 	private String class_id;
 	private String pass;
 	private String url_avatar;
-	private int level;
+	private byte level;
 
 	public InformationUser() {
 	}
@@ -74,11 +74,11 @@ public class InformationUser {
 		this.pass = pass;
 	}
 
-	public int getLevel() {
+	public byte getLevel() {
 		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(byte level) {
 		this.level = level;
 	}
 

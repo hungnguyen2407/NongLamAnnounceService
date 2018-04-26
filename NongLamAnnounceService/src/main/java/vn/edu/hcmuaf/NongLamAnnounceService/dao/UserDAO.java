@@ -113,6 +113,7 @@ public class UserDAO {
 				String birthday = rs.getString("birthday");
 				String faculty_id = rs.getString("faculty_id");
 				String class_id = rs.getString("class_id");
+				byte lv = rs.getByte("levels");
 				u.setId(uid);
 				u.setEmail(email);
 				u.setfName(fname);
@@ -120,6 +121,7 @@ public class UserDAO {
 				u.setBirthday(birthday);
 				u.setFacultyID(faculty_id);
 				u.setClassID(class_id);
+				u.setLevel(lv);
 			}
 			conn.close();
 			return u;
