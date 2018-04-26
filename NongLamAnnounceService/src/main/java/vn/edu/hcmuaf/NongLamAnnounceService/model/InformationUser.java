@@ -9,8 +9,8 @@ public class InformationUser {
 	private String fName;
 	private String lName;
 	private String birthday;
-	private String facultyID;
-	private String classID;
+	private String faculty_id;
+	private String class_id;
 	private String pass;
 	private String url_avatar;
 	private int level;
@@ -51,19 +51,19 @@ public class InformationUser {
 	}
 
 	public String getFacultyID() {
-		return facultyID;
+		return faculty_id;
 	}
 
 	public void setFacultyID(String facultyID) {
-		this.facultyID = facultyID;
+		this.faculty_id = facultyID;
 	}
 
 	public String getClassID() {
-		return classID;
+		return class_id;
 	}
 
 	public void setClassID(String classID) {
-		this.classID = classID;
+		this.class_id = classID;
 	}
 
 	public String getPass() {

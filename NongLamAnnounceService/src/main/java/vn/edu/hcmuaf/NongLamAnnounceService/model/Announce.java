@@ -8,7 +8,7 @@ public class Announce {
 	private String id;
 	private String title;
 	private String content;
-	private String classId;
+	private String class_id;
 	private String date;
 	private String url_img;
 	
@@ -20,7 +20,7 @@ public class Announce {
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.classId = classId;
+		this.class_id = classId;
 		this.date = date;
 		this.url_img = url_img;
 	}
@@ -29,7 +29,7 @@ public class Announce {
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.classId = classId;
+		this.class_id = classId;
 	}
 
 	public String getPostId() {
@@ -65,11 +65,11 @@ public class Announce {
 	}
 
 	public String getClassId() {
-		return classId;
+		return class_id;
 	}
 
 	public void setClassId(String classId) {
-		this.classId = classId;
+		this.class_id = classId;
 	}
 
 	public String getDate() {
