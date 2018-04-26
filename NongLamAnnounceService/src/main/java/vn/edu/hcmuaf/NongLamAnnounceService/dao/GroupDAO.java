@@ -2,6 +2,11 @@ package vn.edu.hcmuaf.NongLamAnnounceService.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import vn.edu.hcmuaf.NongLamAnnounceService.model.UserGroup;
 
 public class GroupDAO {
 	public static boolean joinGroup(String class_id, String id){
@@ -83,5 +88,29 @@ public class GroupDAO {
 			return true;
 		}
 		return false;
+	}
+
+	public static List<UserGroup> getMembersOfGroup(String class_id) {
+		List<UserGroup> list = new ArrayList<UserGroup>();
+		try {
+			Connection conn = MyConnection.getConnection();
+			String sql = "exec p_dsAccount ?";
+			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
+			pr.setString(1, class_id);
+			ResultSet rs = pr.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString("id");
+				String email = rs.getString("email");
+				String fname = rs.getString("fname");
+				String lname = rs.getString("lname");
+				byte level = rs.getByte("levels");
+				UserGroup a = new UserGroup(id, email, fname, lname, level);
+				list.add(a);
+			}
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }
