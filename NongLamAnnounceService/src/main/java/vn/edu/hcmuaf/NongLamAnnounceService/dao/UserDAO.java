@@ -135,25 +135,25 @@ public class UserDAO {
 			String faculty_id, String class_id, String url_avatar) {
 		int i;
 		try {
-			StringTokenizer st = new StringTokenizer(birthday, "-");
+			StringTokenizer st = new StringTokenizer(birthday, "-/");
 			String s = "";
 			while (st.hasMoreTokens()) {
 				s += st.nextToken();
 			}
 			
 			Connection conn = MyConnection.getConnection();
-//			String sql = "call p_insert_accounts (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-			String sql = "exec p_insert_accounts ?, ?, ?, ?, ?, ?, ?, ?, ?, ?;";
+//			String sql = "call p_insert_accounts (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+			String sql = "exec p_insert_accounts ?, ?, ?, ?, ?, ?, ?, ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
-			pr.setNString(2, email);
+			pr.setString(2, email);
 			pr.setNString(3, fname);
-			pr.setString(4, lname);
+			pr.setNString(4, lname);
 			pr.setString(5, birthday);
 			pr.setString(6, faculty_id);
 			pr.setString(7, class_id);
 			pr.setString(8, s);//gán giá trị pass ban đầu là ngày tháng năm sinh theo định dạng yyyymmdd
-			pr.setString(9, url_avatar);
+			pr.setNString(9, url_avatar);
 			i = pr.executeUpdate();
 			pr.close();
 			conn.close();
@@ -175,7 +175,7 @@ public class UserDAO {
 			String sql = "exec p_update_pass ?, ?;";
 			PreparedStatement pr = (PreparedStatement) conn.prepareStatement(sql);
 			pr.setString(1, id);
-			pr.setNString(2, pass);
+			pr.setString(2, pass);
 			i = pr.executeUpdate();
 			pr.close();
 			conn.close();
@@ -188,6 +188,4 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
-	
 }

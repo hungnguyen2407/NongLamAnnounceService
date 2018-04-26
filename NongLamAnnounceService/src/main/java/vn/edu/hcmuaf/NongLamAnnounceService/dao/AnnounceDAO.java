@@ -123,7 +123,7 @@ public class AnnounceDAO {
 			pr.setNString(2, title);
 			pr.setNString(3, content);
 			pr.setString(4, class_id);
-			pr.setString(5, url_img);
+			pr.setNString(5, url_img);
 			i = pr.executeUpdate();
 			pr.close();
 			conn.close();

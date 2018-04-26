@@ -26,14 +26,12 @@ import vn.edu.hcmuaf.NongLamAnnounceService.model.InformationUser;
 		* 100)
 public class XuLyThemTaiKhoan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String UPLOADFILE = "D:\\ZGame\\File";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public XuLyThemTaiKhoan() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -56,16 +54,20 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 		// process only if its multipart content
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html ;charset=UTF-8");
-		String id = request.getParameter("mssv");
-		String email = request.getParameter("mail");
-		String fName = request.getParameter("iname");
-		String lName = request.getParameter("fname");
-		String birthday = request.getParameter("date");
-		String facultyID = request.getParameter("khoa");
-		String classID = request.getParameter("class");
-		String url = request.getParameter("pass");
-		UserDAO.addUser(id, email, fName, lName, birthday, facultyID, classID, url);
+		//Thêm tài khoản nhập từ from
+//		String id = request.getParameter("mssv");
+//		String email = request.getParameter("mail");
+//		String fName = request.getParameter("iname");
+//		String lName = request.getParameter("fname");
+//		String birthday = request.getParameter("date");
+//		String facultyID = request.getParameter("khoa");
+//		String classID = request.getParameter("class");
+//		String url = request.getParameter("pass");
+//		UserDAO.addUser(id, email, fName, lName, birthday, facultyID, classID, url);
 		
+		//thêm tài khoản import file excel
+		String uploadFolder =
+				getServletContext().getRealPath("/UploadFile");
 		String fileDir = "";
 		if (ServletFileUpload.isMultipartContent(request)) {
 			try {
@@ -73,7 +75,7 @@ public class XuLyThemTaiKhoan extends HttpServlet {
 				for (FileItem item : multiparts) {
 					if (!item.isFormField()) {
 						String name = new File(item.getName()).getName();
-						fileDir = UPLOADFILE + File.separator + name;
+						fileDir = uploadFolder + File.separator + name;
 						item.write(new File(fileDir));
 					}
 				}
