@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container, 
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html#d4e194 -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>vn.edu.hcmuaf.NongLamAnnounceService</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/service/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyDangNhap</display-name>
+    <servlet-name>XuLyDangNhap</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyDangNhap</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyDangNhap</servlet-name>
+    <url-pattern>/XuLyDangNhap</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyDangXuat</display-name>
+    <servlet-name>XuLyDangXuat</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyDangXuat</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyDangXuat</servlet-name>
+    <url-pattern>/XuLyDangXuat</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuenMatKhau</display-name>
+    <servlet-name>QuenMatKhau</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.QuenMatKhau</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuenMatKhau</servlet-name>
+    <url-pattern>/QuenMatKhau</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyQuenMatKhau</display-name>
+    <servlet-name>XuLyQuenMatKhau</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyQuenMatKhau</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyQuenMatKhau</servlet-name>
+    <url-pattern>/XuLyQuenMatKhau</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyThemTaiKhoan</display-name>
+    <servlet-name>XuLyThemTaiKhoan</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyThemTaiKhoan</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyThemTaiKhoan</servlet-name>
+    <url-pattern>/XuLyThemTaiKhoan</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>XuLyThemTKForm</display-name>
+    <servlet-name>XuLyThemTKForm</servlet-name>
+    <servlet-class>vn.edu.hcmuaf.NongLamAnnounceService.code.XuLyThemTKForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>XuLyThemTKForm</servlet-name>
+    <url-pattern>/XuLyThemTKForm</url-pattern>
+  </servlet-mapping>
+</web-app>
