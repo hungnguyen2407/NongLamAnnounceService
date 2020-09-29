@@ -14,7 +14,7 @@ public class MyConnection {
 		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		String url = "jdbc:sqlserver://projectmid.database.windows.net:1433;database=NotiApp";
 		String user = "nguyentu@projectmid";
-		String pass = "Microsoft@24";
+		String pass = "microsoft@24";
 		try {
 			Class.forName(driver);
 			connection = (Connection) DriverManager.getConnection(url, user, pass);

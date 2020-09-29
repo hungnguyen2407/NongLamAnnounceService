@@ -1,4 +1,4 @@
-﻿/*
+/*
 Version: 2.3 • Released on 24 Aug 2012
 Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckfinder.com/license
